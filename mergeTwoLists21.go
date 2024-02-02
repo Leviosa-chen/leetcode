@@ -26,6 +26,7 @@ func main() {
 	// 输出
 	current := head
 	for current != nil {
+		//println(current.Val)
 		current = current.Next
 	}
 }
@@ -51,8 +52,8 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	list1 = list1.Next
 	current := head
 
+	i := 0
 	for list1 != nil && list2 != nil {
-		println(current.Val, list1.Val, list2.Val)
 		if list1.Val > list2.Val {
 			current.Next = list2
 			list2 = list2.Next
@@ -60,14 +61,20 @@ func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 			current.Next = list1
 			list1 = list1.Next
 		}
+		current = current.Next
+		println(current.Val, list1.Val, list2.Val)
+		i++
+		if i > 6 {
+			break
+		}
 	}
 
-	if list1 != nil {
-		current.Next = list1
-	}
-	if list2 != nil {
-		current.Next = list2
-	}
+	//if list1 != nil {
+	//	current.Next = list1
+	//}
+	//if list2 != nil {
+	//	current.Next = list2
+	//}
 
 	return head
 }
