@@ -24,24 +24,3 @@ func search(nums []int, target int) int {
 	}
 	return -1
 }
-
-func findItem(nums []int, target int) int {
-	result := -1
-	left := 0
-	right := len(nums) - 1
-	mid := (left + right) / 2
-	for mid > left && mid < right {
-		println(left, right, mid)
-		if nums[mid] == target {
-			result = mid
-			break
-		} else if nums[mid] > target {
-			right = mid - 1
-		} else {
-			left = mid + 1
-		}
-		mid = (left + right) / 2
-	}
-
-	return result
-}
