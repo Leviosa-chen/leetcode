@@ -26,13 +26,6 @@ func maxDepth1(root *TreeNode) int {
 	return max(maxDepth(root.Left), maxDepth(root.Right)) + 1
 }
 
-func max(a int, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 func insertLevelOrder(arr []int, root *TreeNode, i int, n int) *TreeNode {
 	if i < n {
 		temp := &TreeNode{Val: arr[i]}
