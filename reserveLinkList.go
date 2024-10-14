@@ -1,5 +1,10 @@
 package main
 
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
 func main() {
 
 	node1 := &ListNode{Val: 1}
@@ -24,15 +29,16 @@ func main() {
 
 // 迭代法
 func reverseList1(head *ListNode) *ListNode {
-	current := head
-	var pre *ListNode
-	for current != nil {
-		next := current.Next
-		current.Next = pre
-		pre = current
-		current = next
+	if head == nil {
+		return head
 	}
-
+	var pre *ListNode
+	for head != nil {
+		next := head.Next
+		head.Next = pre
+		pre = head
+		head = next
+	}
 	return pre
 }
 

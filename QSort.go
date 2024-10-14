@@ -3,9 +3,31 @@ package main
 import "fmt"
 
 func main() {
-	arr := []int{0, 0, 2, 8, 9, 8}
-	qSort(arr, 0, len(arr)-1)
+	arr := []int{5, 7, 5, 3, 1, 8, 6, 4, 2}
+	qSort1(arr, 0, len(arr)-1)
 	fmt.Println(arr)
+}
+
+func qSort1(list []int, left int, right int) {
+	if left >= right {
+		return
+	}
+	i, j := left, right
+	target := list[left]
+	for i < j {
+		for i < j && list[i] <= target {
+			i++
+		}
+		for i < j && list[j] >= target {
+			j--
+		}
+		if i < j {
+			list[i], list[j] = list[j], list[i]
+		}
+	}
+	list[left], list[j] = list[j], list[left]
+	qSort1(list, left, j-1)
+	qSort1(list, j+1, right)
 }
 
 func qSort(list []int, left int, right int) {
