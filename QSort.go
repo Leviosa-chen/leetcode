@@ -15,11 +15,11 @@ func qSort1(list []int, left int, right int) {
 	i, j := left, right
 	target := list[left]
 	for i < j {
-		for i < j && list[i] <= target {
-			i++
-		}
 		for i < j && list[j] >= target {
 			j--
+		}
+		for i < j && list[i] <= target {
+			i++
 		}
 		if i < j {
 			list[i], list[j] = list[j], list[i]

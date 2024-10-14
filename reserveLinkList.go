@@ -1,10 +1,5 @@
 package main
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 func main() {
 
 	node1 := &ListNode{Val: 1}
